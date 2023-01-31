@@ -26,6 +26,8 @@ export const Profile = styled.div`
   display: flex;
   align-items: center;
   gap: 0.9rem;
+  
+
 
   > a img {
     width: 6.4rem;
@@ -45,6 +47,7 @@ export const Profile = styled.div`
       font-size: 1.4rem;
       line-height: 1.8rem;
       color: ${({ theme }) => theme.colors.white};
+
     }
   }
 
