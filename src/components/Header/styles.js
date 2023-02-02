@@ -7,6 +7,8 @@ export const Container = styled.header`
   height: 11.6rem;
   display: flex;
 
+  gap: 6.4rem;
+
   justify-content: space-between;
   align-items: center;
   padding: 2.4rem 12.3rem;
@@ -47,6 +49,7 @@ export const Profile = styled.div`
       font-size: 1.4rem;
       line-height: 1.8rem;
       color: ${({ theme }) => theme.colors.white};
+
 
     }
   }

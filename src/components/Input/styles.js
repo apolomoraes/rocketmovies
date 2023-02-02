@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  
+  gap: 1rem;
 
   border-radius: 1.0rem;
   padding: 1.9rem 2.4rem;
@@ -14,9 +14,14 @@ export const Container = styled.div`
 
   > input {
     width: 100%;
-    height: 10px;
+    height: 2rem;
+
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.8rem;
 
     color: ${({ theme }) => theme.colors.gray100};
+
 
     background: transparent;
     border: 0;

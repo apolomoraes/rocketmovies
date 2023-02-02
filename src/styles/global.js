@@ -11,9 +11,25 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 
+  *::-webkit-scrollbar {
+    width: 0.8rem;
+ 
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: transparent;
+  
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.pink};
+    border-radius: 10rem;
+  }  
+
   body {
     background-color: ${({ theme }) => theme.colors.background800};
     color: ${({ theme }) => theme.colors.white};
+    overflow-y: hidden;
   }
 
   body, input, button, textarea{
