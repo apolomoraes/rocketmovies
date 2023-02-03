@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  margin-bottom: 2.4rem;
+
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 1.6rem;
   padding: 3.2rem;
