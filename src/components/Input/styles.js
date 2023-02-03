@@ -8,12 +8,13 @@ export const Container = styled.div`
   padding: 1.9rem 2.4rem;
   border-radius: 1.0rem;
 
+  margin-top: .8rem;
+
   background-color: ${({ theme }) => theme.colors.background700};
   color: ${({ theme }) => theme.colors.gray100};
 
   > input {
     width: 100%;
-   
 
     font-size: 1.5rem;
     font-weight: 400;

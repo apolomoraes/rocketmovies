@@ -71,11 +71,17 @@ export const Content = styled.div`
   }
 
   .section p {
-    margin-top: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
 
       color: ${({ theme }) => theme.colors.font_p};
       font-weight: 400;
       font-size: 1.6rem;
       line-height: 1.9rem;
+  }
+
+  .tag {
+    display: flex;
+    gap:.8rem;
   }
 `;
