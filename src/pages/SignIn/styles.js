@@ -41,6 +41,9 @@ export const Form = styled.div`
   }
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 4.2rem;
     font-weight: 400;
     font-size: 1.6rem;
