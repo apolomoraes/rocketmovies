@@ -36,7 +36,7 @@ export function Create() {
           </Tags>
 
           <div className='buttons'>
-            <Button title="Excluir filme" />
+            <button className='delete'>Excluir filme</button>
             <Button title="Salvar alterações" />
           </div>
         </Form>
