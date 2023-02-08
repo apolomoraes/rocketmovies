@@ -1,9 +1,9 @@
 import { AiOutlineStar } from "react-icons/ai";
 import { Container } from "./styles";
 
-export function Rating() {
+export function Rating({ width, height, margin }) {
   return (
-    <Container>
+    <Container width={width} height={height} margin={margin} >
 
       <AiOutlineStar />
       <AiOutlineStar />

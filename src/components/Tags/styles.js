@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.span`
-  background: ${({ theme }) => theme.colors.gray400};  
+  background: ${props => props.background};  
   border-radius: .8rem;
   
-  padding: .5rem 1.6rem;
+  padding: ${props => props.padding};
 
   font-weight: 400;
   font-size: 1.2rem;
