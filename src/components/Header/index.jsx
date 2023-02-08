@@ -1,6 +1,8 @@
 import { FiSearch } from 'react-icons/fi';
 import { Container, Profile } from "./styles"
 import { Input } from "../Input"
+import { Link } from 'react-router-dom'
+
 
 export function Header() {
   return (
@@ -17,9 +19,9 @@ export function Header() {
           <a className="back" href="#">sair</a>
         </div>
 
-        <a href="#">
+        <Link to="/profile" >
           <img src="https://github.com/apolomoraes.png" alt="Foto de Perfil" />
-        </a>
+        </Link>
       </Profile>
     </Container>
   )

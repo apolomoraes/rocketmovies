@@ -4,6 +4,7 @@ import { Container, Content } from "./styles"
 import { Rating } from "../../components/Rating"
 import { Tags } from "../../components/Tags"
 import { FiPlus } from 'react-icons/fi';
+import { Link } from 'react-router-dom'
 
 
 export function Home() {
@@ -14,8 +15,9 @@ export function Home() {
       <Content>
         <div className="add">
           <h2>Meus filmes</h2>
-          <button>
-            <FiPlus />Adicionar filme</button>
+          <Link to="/create" className="button">
+            <FiPlus />Adicionar filme
+          </Link>
         </div>
         <div className="section">
           <Section title="Harry Potter">

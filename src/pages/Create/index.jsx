@@ -5,6 +5,8 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
 import { MovieTags } from '../../components/MovieTags';
+import { Link } from 'react-router-dom'
+
 
 
 export function Create() {
@@ -14,9 +16,9 @@ export function Create() {
       <main>
         <Form>
           <header>
-            <a href="">
+            <Link to="/" >
               <GiExitDoor />
-            </a>
+            </Link>
             <h1>Novo filme</h1>
           </header>
 

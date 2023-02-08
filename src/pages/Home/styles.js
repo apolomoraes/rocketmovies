@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -34,8 +35,7 @@ export const Content = styled.div`
     align-items: center;
   }
 
-  .add button {
-
+  .add .button {
     display: flex;
     align-items: center;
     padding: 1.3rem 3.2rem;
@@ -44,6 +44,8 @@ export const Content = styled.div`
     margin: 4.7rem 0 3.7rem 0;
     border: none;
     background-color: ${({ theme }) => theme.colors.pink};
+
+    color: ${({ theme }) => theme.colors.background800};
 
     font-weight: 400;
     font-size: 1.6rem;

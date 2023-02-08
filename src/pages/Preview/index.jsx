@@ -4,6 +4,8 @@ import { Rating } from '../../components/Rating'
 import { Tags } from '../../components/Tags'
 import { GiExitDoor } from "react-icons/gi";
 import { FiClock } from "react-icons/fi";
+import { Link } from 'react-router-dom'
+
 
 
 export function Preview() {
@@ -13,9 +15,9 @@ export function Preview() {
 
       <main>
         <Content>
-          <a href="#">
+          <Link to="/" >
             <GiExitDoor />
-          </a>
+          </Link>
 
           <Title>
             <div className="title-rating">
