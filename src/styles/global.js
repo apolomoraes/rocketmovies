@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
@@ -52,4 +53,8 @@ export default createGlobalStyle`
   a:hover {
     filter: brightness(0.9);
   }
+
+.Toastify__toast-body {
+  font-size: 1.6rem;
+}
 `;
