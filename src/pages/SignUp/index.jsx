@@ -13,7 +13,7 @@ export function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleSignUp() {
     if (!name || !email || !password) {
@@ -23,7 +23,7 @@ export function SignUp() {
     api.post("/users", { name, email, password })
       .then(() => {
         Toast().handleSuccess("Usuário cadastrado com sucesso");
-        navigate(-1)
+        navigate(-1);
       })
       .catch(error => {
         if (error.response) {
@@ -32,7 +32,6 @@ export function SignUp() {
           Toast().handleError("Não foi possível cadastrar");
         }
       })
-
   }
 
   return (
