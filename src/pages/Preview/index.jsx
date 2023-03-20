@@ -25,7 +25,7 @@ export function Preview() {
           <Title>
             <div className="title-rating">
               <h1>Harry Potter</h1>
-              <Rating width={"2rem"} height={"2rem"} margin={"1rem 0 0"} />
+              <Rating width={"2rem"} height={"2rem"} margin={"1rem 0 0"} rating={1} />
             </div>
 
             <div className="data">
