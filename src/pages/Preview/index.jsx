@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Container, Content, Title } from './styles'
 import { Header } from '../../components/Header'
 import { Rating } from '../../components/Rating'
@@ -5,10 +6,12 @@ import { Tags } from '../../components/Tags'
 import { GiExitDoor } from "react-icons/gi";
 import { FiClock } from "react-icons/fi";
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth';
 
 
 
 export function Preview() {
+  const { user } = useAuth();
   return (
     <Container>
       <Header />
@@ -28,17 +31,17 @@ export function Preview() {
             <div className="data">
               <div>
                 <img src="https://github.com/apolomoraes.png" alt="Foto de Perfil" />
-                <p>Por Apolo Moraes</p>
+                <p>{`Por ${user.name}`}</p>
               </div>
 
               <span>
                 <FiClock />
-                23/05/2022 às 08:00
+                {user.created_at}
               </span>
             </div>
 
             <div className="tags">
-              <Tags title="Suspense" padding={".8rem 1.6rem"} background={"#282124"} />
+              <Tags title="hp" padding={".8rem 1.6rem"} background={"#282124"} />
               <Tags title="Magia" padding={".8rem 1.6rem"} background={"#282124"} />
               <Tags title="Harry" padding={".8rem 1.6rem"} background={"#282124"} />
             </div>
