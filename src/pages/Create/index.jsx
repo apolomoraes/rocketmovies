@@ -1,6 +1,7 @@
 import { Container, Form, NameEvaluation, Tags, TextArea } from './styles'
 import { Header } from '../../components/Header'
 import { GiExitDoor, GiNotebook, GiPencil, GiBinoculars } from "react-icons/gi";
+import { useNavigate } from 'react-router-dom';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
@@ -8,12 +9,17 @@ import { MovieTags } from '../../components/MovieTags';
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { Toast } from '../../components/Toast';
+import { api } from '../../services/api';
 
 
 export function Create() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [rating, setRating] = useState();
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
-  const [rating, setRating] = useState();
+
+  const navigate = useNavigate();
 
   function handleAddTag() {
     setTags(prevState => [...prevState, newTag]);
@@ -22,6 +28,22 @@ export function Create() {
 
   function handleRemoveTag(deleted) {
     setTags(prevState => prevState.filter(tag => tag !== deleted));
+  }
+
+  async function handleNewMovie() {
+    if (rating > 5) {
+      return Toast().handleInfo("Insira uma avaliação entre 0 e 5")
+    }
+
+    await api.post("/notes", {
+      title,
+      description,
+      tags,
+      rating
+    });
+
+    Toast().handleSuccess("Nota criada com sucesso")
+    navigate(-1);
   }
 
   return (
@@ -37,7 +59,11 @@ export function Create() {
           </header>
 
           <NameEvaluation>
-            <Input placeholder="Título" icon={GiPencil} />
+            <Input
+              placeholder="Título"
+              icon={GiPencil}
+              onChange={e => setTitle(e.target.value)}
+            />
             <Input
               placeholder="Sua nota (de 0 a 5)"
               icon={GiNotebook}
@@ -49,7 +75,11 @@ export function Create() {
           </NameEvaluation>
 
           <TextArea>
-            <Textarea placeholder="Observações" icon={GiBinoculars} />
+            <Textarea
+              placeholder="Descrição"
+              icon={GiBinoculars}
+              onChange={e => setDescription(e.target.value)}
+            />
           </TextArea>
 
           <h2>Marcadores</h2>
@@ -72,7 +102,10 @@ export function Create() {
           </Tags>
 
           <div className='button'>
-            <Button title="Salvar alterações" />
+            <Button
+              title="Salvar"
+              onClick={handleNewMovie}
+            />
           </div>
         </Form>
       </main>
