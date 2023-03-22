@@ -26,12 +26,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  a {
-    margin-bottom: 2.4rem;
-    font-size: 3rem;
 
-    color: ${({ theme }) => theme.colors.pink};
-  }
 
   p {
     text-align: justify;
@@ -42,6 +37,29 @@ export const Content = styled.div`
 
     color: ${({ theme }) => theme.colors.white};
   }
+`;
+
+export const Nav = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+
+    .link {
+    font-size: 3rem;
+
+    color: ${({ theme }) => theme.colors.pink};
+  }
+  
+    button {
+      background: transparent;
+      border: none;
+
+      svg {
+        font-size: 2rem;
+        color: ${({ theme }) => theme.colors.gray200};
+      }
+    }
 `;
 
 export const Title = styled.div`

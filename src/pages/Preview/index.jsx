@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Content, Title } from './styles'
+import { Container, Content, Title, Nav } from './styles'
 import { Header } from '../../components/Header'
 import { Rating } from '../../components/Rating'
 import { Tags } from '../../components/Tags'
@@ -7,6 +7,7 @@ import { GiExitDoor } from "react-icons/gi";
 import { FiClock } from "react-icons/fi";
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth';
+import { BsTrash } from "react-icons/bs";
 
 
 
@@ -18,12 +19,20 @@ export function Preview() {
 
       <main>
         <Content>
-          <Link to="/" >
-            <GiExitDoor />
-          </Link>
+
+          <Nav>
+            <Link className='link' to="/" >
+              <GiExitDoor />
+            </Link>
+
+            <button>
+              <BsTrash />
+            </button>
+          </Nav>
 
           <Title>
             <div className="title-rating">
+
               <h1>Harry Potter</h1>
               <Rating width={"2rem"} height={"2rem"} margin={"1rem 0 0"} rating={1} />
             </div>
