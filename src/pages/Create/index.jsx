@@ -31,8 +31,20 @@ export function Create() {
   }
 
   async function handleNewMovie() {
+    if (!title) {
+      return Toast().handleInfo("Digite o nome do filme ou série")
+    }
+
+    if (!rating) {
+      return Toast().handleInfo("Adicione uma avaliação");
+    }
+
     if (rating > 5) {
-      return Toast().handleInfo("Insira uma avaliação entre 0 e 5")
+      return Toast().handleInfo("Insira uma avaliação entre 0 e 5");
+    }
+
+    if (newTag) {
+      return Toast().handleInfo("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar");
     }
 
     await api.post("/notes", {
