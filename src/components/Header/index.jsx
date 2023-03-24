@@ -1,7 +1,7 @@
 import { FiSearch } from 'react-icons/fi';
 import { Container, Profile } from "./styles"
 import { Input } from "../Input"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
@@ -9,6 +9,13 @@ import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
 export function Header({ filterMovies }) {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  function handleSignOut() {
+    navigate("/");
+
+    signOut();
+  }
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
@@ -29,7 +36,7 @@ export function Header({ filterMovies }) {
           <strong>{user.name}</strong>
           <a
             className="back"
-            onClick={signOut}
+            onClick={handleSignOut}
           >
             sair</a>
         </div>
