@@ -25,7 +25,12 @@ export function Create() {
   }
 
   function handleAddTag() {
+    if (newTag.length === 0 || newTag === " ") {
+      return Toast().handleInfo("Preencha o campo para adicionar uma tag");
+    }
+
     setTags(prevState => [...prevState, newTag]);
+
     setNewTag("");
   }
 
@@ -42,7 +47,7 @@ export function Create() {
       return Toast().handleInfo("Adicione uma avaliação");
     }
 
-    if (rating > 5) {
+    if (rating > 5 || rating < 0) {
       return Toast().handleInfo("Insira uma avaliação entre 0 e 5");
     }
 

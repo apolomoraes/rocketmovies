@@ -64,6 +64,14 @@ export const Form = styled.form`
 export const NameEvaluation = styled.div`
   display: flex;
   gap: 4.0rem;
+
+  input[type=number] {
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
 `;
 
 export const TextArea = styled.div`

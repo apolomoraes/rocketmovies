@@ -74,6 +74,10 @@ export const Content = styled.div`
   }
 
   .section p {
+      width: 106rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
 

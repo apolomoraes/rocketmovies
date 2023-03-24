@@ -13,6 +13,8 @@ import { Toast } from '../../components/Toast'
 import Modal from "react-modal";
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
+Modal.setAppElement("#root");
+
 export function Preview() {
   const [data, setData] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
