@@ -45,10 +45,13 @@ export const Nav = styled.div`
     align-items: center;
     margin-bottom: 2.4rem;
 
-    .link {
+    .back {
+    background: transparent;
+    border: none;
+    svg {
     font-size: 3rem;
-
     color: ${({ theme }) => theme.colors.pink};
+    }
   }
   
     button {

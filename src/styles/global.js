@@ -57,4 +57,43 @@ export default createGlobalStyle`
 .Toastify__toast-body {
   font-size: 1.6rem;
 }
+
+// modal-description
+.modal-overlay {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  max-width: 30rem;
+  background-color: #232129;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.modal-content h2 {
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content div {
+  display: flex;
+  gap: 2rem;
+}
+
+.modal-content button {
+  border: none;
+  background: transparent;
+  color: #F4EDE8;
+  font-size: 1.5rem;
+}
 `;

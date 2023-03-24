@@ -1,4 +1,5 @@
 import { Header } from "../../components/Header"
+import { useNavigate } from "react-router-dom"
 import { Section } from "../../components/Section"
 import { Container, Content } from "./styles"
 import { Rating } from "../../components/Rating"
@@ -13,8 +14,14 @@ export function Home() {
   const [search, setSearch] = useState("");
   const [notes, setNotes] = useState([]);
 
+  const navigate = useNavigate();
+
   function filterMovies(e) {
     setSearch(e.target.value)
+  }
+
+  function handlePreview(id) {
+    navigate(`/preview/${id}`);
   }
 
   useEffect(() => {
@@ -42,6 +49,7 @@ export function Home() {
             notes.map(note => (
               <Section
                 key={String(note.id)}
+                onClick={() => handlePreview(note.id)}
                 title={note.title}>
                 <Rating width={"1.2rem"} height={"1.2rem"} rating={note.rating} />
                 <p>{note.description}</p>

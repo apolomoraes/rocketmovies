@@ -6,7 +6,6 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Textarea } from '../../components/Textarea';
 import { MovieTags } from '../../components/MovieTags';
-import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { Toast } from '../../components/Toast';
 import { api } from '../../services/api';
@@ -20,6 +19,10 @@ export function Create() {
   const [tags, setTags] = useState([]);
 
   const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  }
 
   function handleAddTag() {
     setTags(prevState => [...prevState, newTag]);
@@ -68,9 +71,9 @@ export function Create() {
       <main>
         <Form>
           <header>
-            <Link to="/" >
+            <button type='button' onClick={handleBack} >
               <GiExitDoor />
-            </Link>
+            </button>
             <h1>Novo filme</h1>
           </header>
 

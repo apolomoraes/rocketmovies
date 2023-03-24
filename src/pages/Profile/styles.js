@@ -15,7 +15,9 @@ export const Container = styled.div`
 
     background-color: ${({ theme }) => theme.colors.background};
 
-    a {
+    button {
+      background: transparent;
+      border: none;
       color: ${({ theme }) => theme.colors.pink};  
       font-size: 3.5rem;
     }

@@ -49,12 +49,15 @@ export const Form = styled.form`
       margin-bottom: 2.5rem;
     }
 
-    a {
+    button {
+      display: flex;
+      background: transparent;
+      border: none;
+      svg {
       color: ${({ theme }) => theme.colors.pink};  
       font-size: 3.5rem;
+      }
     }
-
-    
   }
 `;
 
