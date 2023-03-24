@@ -64,6 +64,7 @@ export const Content = styled.div`
   }
   
   .section {
+    min-width: 113.7rem;
     grid-area: section;
     overflow-y: scroll;
     display: flex;

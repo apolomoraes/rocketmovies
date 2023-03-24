@@ -1,6 +1,6 @@
 import { Container, Form, NameEvaluation, Tags, TextArea } from './styles'
 import { Header } from '../../components/Header'
-import { GiExitDoor, GiNotebook, GiPencil, GiBinoculars } from "react-icons/gi";
+import { GiExitDoor, GiNotebook, GiPencil, GiBinoculars, GiIgloo } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -16,8 +16,8 @@ export function Create() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState();
-  const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
+  const [tags, setTags] = useState([]);
 
   const navigate = useNavigate();
 
@@ -45,6 +45,10 @@ export function Create() {
 
     if (newTag) {
       return Toast().handleInfo("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar");
+    }
+
+    if (tags.length === 0) {
+      return Toast().handleInfo("Adicione pelo menos uma tag");
     }
 
     await api.post("/notes", {
