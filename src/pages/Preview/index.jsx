@@ -12,12 +12,14 @@ import { api } from '../../services/api'
 import { Toast } from '../../components/Toast'
 import Modal from "react-modal";
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+import { Loading } from '../../components/Loading'
 
 Modal.setAppElement("#root");
 
 export function Preview() {
   const [data, setData] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   const { user } = useAuth();
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
@@ -47,8 +49,10 @@ export function Preview() {
 
   useEffect(() => {
     async function fetchNote() {
+      setShowLoading(true);
       const response = await api.get(`/notes/${params.id}`);
       setData(response.data)
+      setShowLoading(false);
     }
 
     fetchNote();
@@ -125,6 +129,7 @@ export function Preview() {
           </Content>
         </main>
       }
+      {showLoading && <Loading />}
     </Container>
   )
 }

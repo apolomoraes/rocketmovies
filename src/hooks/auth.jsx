@@ -1,13 +1,16 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from '../services/api'
 import { Toast } from '../components/Toast'
+import { Loading } from "../components/Loading";
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
+  const [showLoading, setShowLoading] = useState(false);
 
   async function signIn({ email, password }) {
+    setShowLoading(true);
     try {
       const response = await api.post("/sessions", { email, password });
       const { user, token } = response.data;
@@ -27,6 +30,7 @@ function AuthProvider({ children }) {
         Toast().handleError("Não foi possível entrar");
       }
     }
+    setShowLoading(false);
   }
 
   function signOut() {
@@ -77,6 +81,7 @@ function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{
       signIn,
+      showLoading,
       user: data.user,
       signOut,
       updateProfile

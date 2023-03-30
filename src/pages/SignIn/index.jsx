@@ -5,18 +5,19 @@ import { Button } from '../../components/Button'
 import { FiMail, FiLock } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth'
 import { useState } from 'react';
+import { Loading } from '../../components/Loading';
 
 export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { signIn } = useAuth();
+  const { signIn, showLoading } = useAuth();
 
   function handleSignIn() {
     signIn({ email, password });
   }
-
   return (
+
     <Container>
 
       <Form>
@@ -31,6 +32,7 @@ export function SignIn() {
 
         <Link to="/register" >Criar conta</Link>
       </Form>
+      {showLoading && <Loading />}
       <Background />
 
     </Container>

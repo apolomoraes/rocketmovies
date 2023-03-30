@@ -6,12 +6,14 @@ import { FiMail, FiLock, FiArrowLeft, FiUser } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom'
 import { Toast } from '../../components/Toast'
 import { api } from "../../services/api"
+import { Loading } from "../../components/Loading"
 
 
 export function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showLoading, setShowLoading] = useState(false);
 
   const navigate = useNavigate()
 
@@ -20,12 +22,15 @@ export function SignUp() {
       return Toast().handleInfo("Preencha todos os campos")
     }
 
+    setShowLoading(true);
     api.post("/users", { name, email, password })
       .then(() => {
+        setShowLoading(false);
         Toast().handleSuccess("Usuário cadastrado com sucesso");
         navigate(-1);
       })
       .catch(error => {
+        setShowLoading(false);
         if (error.response) {
           Toast().handleError(error.response.data.message);
         } else {
@@ -69,6 +74,7 @@ export function SignUp() {
 
         <Link to="/" ><FiArrowLeft /> Voltar para o login</Link>
       </Form>
+      {showLoading && <Loading />}
       <Background />
 
     </Container>

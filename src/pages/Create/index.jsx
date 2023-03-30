@@ -9,6 +9,7 @@ import { MovieTags } from '../../components/MovieTags';
 import { useState } from 'react';
 import { Toast } from '../../components/Toast';
 import { api } from '../../services/api';
+import { Loading } from '../../components/Loading';
 
 
 export function Create() {
@@ -17,6 +18,9 @@ export function Create() {
   const [rating, setRating] = useState();
   const [newTag, setNewTag] = useState("");
   const [tags, setTags] = useState([]);
+
+  const [showLoading, setShowLoading] = useState(false);
+
 
   const navigate = useNavigate();
 
@@ -59,6 +63,7 @@ export function Create() {
       return Toast().handleInfo("Adicione pelo menos uma tag");
     }
 
+    setShowLoading(true);
     await api.post("/notes", {
       title,
       description,
@@ -66,6 +71,7 @@ export function Create() {
       rating
     });
 
+    setShowLoading(false);
     Toast().handleSuccess("Nota criada com sucesso")
     navigate(-1);
   }
@@ -133,6 +139,7 @@ export function Create() {
           </div>
         </Form>
       </main>
+      {showLoading && <Loading />}
     </Container>
 
   )

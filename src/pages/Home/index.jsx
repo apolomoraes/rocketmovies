@@ -8,11 +8,13 @@ import { FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import { api } from "../../services/api"
+import { Loading } from "../../components/Loading"
 
 
 export function Home() {
   const [search, setSearch] = useState("");
   const [notes, setNotes] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,8 +28,10 @@ export function Home() {
 
   useEffect(() => {
     async function fetchNotes() {
+      setShowLoading(true);
       const response = await api.get(`/notes?title=${search}`);
       setNotes(response.data)
+      setShowLoading(false);
     }
 
     fetchNotes();
@@ -71,6 +75,7 @@ export function Home() {
           }
         </div>
       </Content>
+      {showLoading && <Loading />}
 
     </Container>
   )
