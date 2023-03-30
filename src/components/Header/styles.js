@@ -42,7 +42,7 @@ export const Profile = styled.div`
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  
+  width: fit-content;
 
 
   > a img {
@@ -57,14 +57,14 @@ export const Profile = styled.div`
     flex-direction: column;
     align-items: flex-end;
     padding: 0px;
+    width: 10rem;
 
     strong {
       font-weight: 700;
       font-size: 1.4rem;
       line-height: 1.8rem;
       color: ${({ theme }) => theme.colors.white};
-
-
+      width: fit-content;
     }
   }
 

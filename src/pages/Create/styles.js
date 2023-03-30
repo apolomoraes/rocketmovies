@@ -3,24 +3,26 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-
+  
   display: grid;
   grid-template-areas: 'header' 'content';
-
+  
   main {
     grid-area: content;
   }
-`;
+  `;
 
 export const Form = styled.form`
   max-width: 113.7rem;
+  overflow-y: auto;
   margin: 3.8rem auto;
   padding-right: 1rem;
-  overflow-y: auto;
-  height: 45rem;
+  height: 75vh;
+
 
   .button {
     width: 40rem;
+    padding-bottom: 3rem;
 }
 
   h2 {
